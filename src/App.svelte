@@ -28,8 +28,8 @@
 
 <style>
     div {
-        width: 10rem;
-        height: 10rem;
+        width: 1rem;
+        height: 1rem;
         background: #ccc;
         margin: 1rem;
         box-shadow: 0 2px 8px rgba(0,0,0,0.26);
@@ -45,6 +45,6 @@
 <button on:click={addBox} >Add</button>
 
 {#each boxes as box (box)}
-    <div transition:fade>{box}</div>
+    <div transition:fly={{duration: 300, easing: cubicIn, y:-300}}>{box}</div>
 {/each}
 
