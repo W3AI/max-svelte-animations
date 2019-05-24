@@ -54,7 +54,7 @@
 </button>
 
 {#if showParagraph}
-  <p transition:fly={{ y: 300 }}>Can you see me?</p>
+  <p in:fly={{ y: -300 }} out:fly={{ y: 300 }}>Can you see me?</p>
 {/if}
 
 <hr />
