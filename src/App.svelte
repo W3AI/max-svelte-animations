@@ -1,15 +1,21 @@
 <script>
-    import { writable } from 'svelte/store';
-    import { tweened } from 'svelte/motion';
+  import { writable } from "svelte/store";
+  import { tweened } from "svelte/motion";
+  import { cubicIn } from "svelte/easing";
 
-    const progress = tweened(0);
+  import Spring from './Spring.svelte'; 
 
-    setTimeout(() => {
-        progress.set(.5);
-    }, 1500);
+  // default duration = 400ms
+  const progress = tweened(0, {
+    delay: 0,
+    duration: 700,
+    easing: cubicIn
+  });
+
+  setTimeout(() => {
+    progress.set(0.5);
+  }, 1500);
 </script>
 
-<progress value={$progress}></progress>
-
-
-
+<!-- <progress value={$progress} /> -->
+<Spring />

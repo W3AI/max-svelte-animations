@@ -1,5 +1,7 @@
 <script>
   import { writable } from "svelte/store";
+//   import { tweened } from 'svelte/motion';
+  import { spring } from 'svelte/motion';
   
   let cards = writable([
     {
@@ -19,7 +21,7 @@
       color: "orange"
     }
   ]);
-  let cardPos = writable([
+  let cardPos = spring([
     {
       rotation: 10,
       dx: 0
@@ -36,7 +38,11 @@
       rotation: -25,
       dx: 0
     }
-  ]);
+  ], {
+      stiffness: 0.05, 
+      damping: 0.9,
+      precision: 0.001
+  });
 
   function discard(index) {
     cardPos.update(items => {
