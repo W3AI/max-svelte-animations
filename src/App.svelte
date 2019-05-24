@@ -24,6 +24,10 @@
   function addBox() {
       boxes = [...boxes, boxInput.value];
   }
+
+  function discard(value) {
+      boxes = boxes.filter(el => el !== value);
+  }
 </script>
 
 <style>
@@ -45,6 +49,7 @@
 <button on:click={addBox} >Add</button>
 
 {#each boxes as box (box)}
-    <div transition:fly={{duration: 300, easing: cubicIn, y:-300}}>{box}</div>
+    <div transition:fly={{duration: 400, easing: cubicIn, y:-300}}
+    on:click={discard.bind(this, box)} >{box}</div>
 {/each}
 
